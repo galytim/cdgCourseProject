@@ -1,0 +1,11 @@
+<%if !comment.archived?%>
+ <b> <%= comment.commenter %></b>: <%= comment.body %>
+  <p>
+    <%= link_to "Destroy Comment", [comment.post, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %>
+  </p>
+<% end %>
+
+

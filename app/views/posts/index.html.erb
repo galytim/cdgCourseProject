@@ -1,6 +1,8 @@
 <% @posts.each do |post| %>
 <div>
-    <%= link_to post.title, post %> 
+    <% if !post.archived?%>
+    <%= link_to post.body, post %> 
+    <% end %>
 </div>
 <% end %>
 <%= link_to "New", new_post_path %>

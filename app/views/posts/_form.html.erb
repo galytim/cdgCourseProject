@@ -1,0 +1,23 @@
+<%= form_with model: post do |form| %>
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% post.errors.full_messages_for(:body).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  <div>
+    <%= form.label :image %><br>
+     <%= form.file_field :image %>
+     <% post.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+ <div>
+  <%= form.label :status %><br>
+  <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+</div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
