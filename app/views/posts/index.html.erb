@@ -1,6 +1,7 @@
 <% @posts.each do |post| %>
 <div>
     <% if !post.archived?%>
+    <%= post.user.email%> 
     <%= link_to post.body, post %> 
     <% end %>
 </div>
