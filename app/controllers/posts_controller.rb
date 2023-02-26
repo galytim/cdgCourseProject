@@ -24,11 +24,11 @@ class PostsController < ApplicationController
     end
 
     def edit
-        @post = Post.find(params[:id])
+        @post = current_user.posts.find(params[:id])
     end
 
     def update
-        @post = Post.find(params[:id])
+        @post = current_user.posts.find(params[:id])
         if  @post.update(post_params)
             redirect_to @post
         else 
@@ -37,8 +37,8 @@ class PostsController < ApplicationController
         end 
     end
     def destroy
-        if  @article = current_user.posts.find(params[:id])
-            @article.destroy
+        if  @post = current_user.posts.find(params[:id])
+            @post.destroy
         else
             flash[:notice] = "you can't delete posts that aren't yours"
         end
