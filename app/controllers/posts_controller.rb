@@ -37,9 +37,11 @@ class PostsController < ApplicationController
         end 
     end
     def destroy
-        @article = Post.find(params[:id])
-        @article.destroy
-    
+        if  @article = current_user.posts.find(params[:id])
+            @article.destroy
+        else
+            flash[:notice] = "you can't delete posts that aren't yours"
+        end
         redirect_to root_path, status: :see_other
     end    
 

@@ -15,4 +15,8 @@ module Visible   extend ActiveSupport::Concern
     def archived?
       status == 'archived'
     end
+
+    def author?(cur_user)
+      cur_user == self.user
+    end
 end
