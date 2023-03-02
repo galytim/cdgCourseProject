@@ -18,7 +18,6 @@ class PostsController < ApplicationController
             redirect_to @post
         else 
             render :new, status: :unprocessable_entity
-
         end 
     
     end
