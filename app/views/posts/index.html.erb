@@ -1,10 +1,6 @@
 <% @posts.each do |post| %>
-<div class = "feed">
-    <% if !post.archived?%>
-    <%= post.user.username%> <br>
-    <%= image_tag post.image_url, :style => "height: 500px;width:500px"%><br>
-    <%= link_to post.body, post %> 
-    <% end %>
-</div>
+
+<%= render post %>
+
 <% end %>
 

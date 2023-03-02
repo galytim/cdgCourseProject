@@ -1,13 +1,13 @@
 <%if !comment.archived?%>
-  <b> <%= comment.user.email%></b>: <%= comment.body %>
-  <p>
+  <b> <%= comment.user.username%></b>: <%= comment.body %>
+ 
   <%if comment.author?(current_user)%>
-    <%= link_to "Destroy Comment", [comment.post, comment], data: {
+    <%= link_to "Destroy", [comment.post, comment], data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
                   } %>
   <% end %>
-  </p>
+  <br>
 <% end %>
 
 

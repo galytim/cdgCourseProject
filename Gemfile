@@ -15,6 +15,9 @@ gem "image_processing", "~> 1.12", ">= 1.12.1"
 
 gem "pg", "~> 1.1"
 
+gem "tailwindcss-rails", "~> 2.0"
+gem 'foreman', '~> 0.87.2'
+
 gem "puma", "~> 5.0"
 
 gem "importmap-rails"
@@ -43,3 +46,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
