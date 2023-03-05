@@ -1,5 +1,7 @@
 <%= image_tag @post.image_url, :style => "height: 500px;width:500px"%>
 <p><%=@post.body%></p>
+<%= button_to 'Like', post_likes_path(@post), method: :post %>
+<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 <%= link_to "Back", posts_path %>
 <%if @post.author?(current_user)%>
     <%= link_to "Edit", edit_post_path %>
