@@ -46,14 +46,12 @@ class PostsController < ApplicationController
 
     def like
             @post = Post.find(params[:id])
-            if @post.likes.where(user_id: current_user.id).exists?
+            if @post.liked?(current_user)
               @post.likes.find_by(user_id: current_user.id).destroy
             else
               @post.likes.create(user_id: current_user.id)
             end
-           respond_to do |format|
-            format.js
-           end
+           respond_to :js
     end
 
 
