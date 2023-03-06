@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    
+  
     def index
         @posts = Post.all
     end
@@ -43,6 +43,20 @@ class PostsController < ApplicationController
         end
         redirect_to root_path, status: :see_other
     end    
+
+    def like
+            @post = Post.find(params[:id])
+            if @post.likes.where(user_id: current_user.id).exists?
+              @post.likes.find_by(user_id: current_user.id).destroy
+            else
+              @post.likes.create(user_id: current_user.id)
+            end
+           respond_to do |format|
+            format.js
+           end
+    end
+
+
 
     private
     def post_params

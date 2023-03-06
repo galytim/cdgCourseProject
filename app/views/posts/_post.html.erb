@@ -9,10 +9,15 @@
 
      <div class="mt-3 px-2">
         <div class=" flex flex-row h-[42px]">
-            
+
+
+
+			<%= button_to 'Like', like_post_path(post), remote: true, method: :put, id: 'like_button' %>
+			 <span id="like-count" data-post-id="<%= post.id %>">
+                <%= post.likes.count %>
+            </span>
         </div>    
-            <div class="font-bold">Нравиться: 1000</div>
-            <div class="flex mt-2">
+  
             
                 <div class="font-bold">
                     <%= post.user.username%>

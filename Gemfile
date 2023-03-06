@@ -9,6 +9,7 @@ gem "devise"
 gem "mail", "~> 2.7.1", require: false
 
 gem "sprockets-rails"
+gem "jquery-rails"
 
 gem "shrine", "~> 3.3"
 gem "image_processing", "~> 1.12", ">= 1.12.1"

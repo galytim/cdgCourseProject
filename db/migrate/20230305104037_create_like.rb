@@ -7,6 +7,7 @@ class CreateLike < ActiveRecord::Migration[7.0]
       t.datetime "updated_at", null: false
       t.index ["post_id"], name: "index_likes_on_post_id"
       t.index ["user_id"], name: "index_likes_on_user_id"
+      t.index ["post_id","user_id"], :unique => true
     end
     end
   end
