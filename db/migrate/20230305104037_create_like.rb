@@ -1,12 +1,8 @@
 class CreateLike < ActiveRecord::Migration[7.0]
   def change
-    create_table "likes", force: :cascade do |t|
-      t.bigint "post_id", null: false
-      t.bigint "user_id", null: false
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-      t.index ["post_id"], name: "index_likes_on_post_id"
-      t.index ["user_id"], name: "index_likes_on_user_id"
+    create_table "likes", id: false do |t|
+      t.belongs_to :user
+      t.belongs_to :post
       t.index ["post_id","user_id"], :unique => true
     end
     end

@@ -32,9 +32,11 @@ class PostsController < ApplicationController
             redirect_to @post
         else 
             render :edit, status: :unprocessable_entity
-
         end 
     end
+
+
+
     def destroy
         if  @post = current_user.posts.find(params[:id])
             @post.destroy
@@ -44,20 +46,22 @@ class PostsController < ApplicationController
         redirect_to root_path, status: :see_other
     end    
 
+
+
     def like
-            @post = Post.find(params[:id])
-            if @post.liked?(current_user)
-              @post.likes.find_by(user_id: current_user.id).destroy
-            else
-              @post.likes.create(user_id: current_user.id)
-            end
-           respond_to :js
+        @post = Post.find(params[:id])
+        if @post.liked_users.exists?(current_user.id)
+            @post.liked_users.delete(current_user)
+        else
+            @post.liked_users.push(current_user)
+        end
+        respond_to :js
     end
 
 
 
     private
     def post_params
-        params.require(:post).permit(:body, :image, :status)
+        params.require(:post).permit(:body, :image, :status, :liked_users)
     end
 end

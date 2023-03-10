@@ -1,1 +1,1 @@
-$("#like-count[data-post-id='<%=@post.id%>'").html("<%= j @post.likes.count %>");
+$("#like-count[data-post-id='<%=@post.id%>'").html("<%= j @post.liked_users.count %>");

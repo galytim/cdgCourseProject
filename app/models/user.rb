@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
-  has_many :likes
+  has_and_belongs_to_many :liked_post, class_name: "Post", join_table: "likes"
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable

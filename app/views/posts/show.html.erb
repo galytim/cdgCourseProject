@@ -3,7 +3,7 @@
 
 <div class="flex flex-row ">
 <%= button_to "Like", like_post_path(@post), remote: true, method: :put, id: "like_button" %>
-	<div id="like-count"  data-post-id="<%= @post.id %>"><%= @post.likes.count %></div>
+	<div id="like-count"  data-post-id="<%= @post.id %>"><%= @post.liked_users.count  %></div>
 
 </div>
 <%if @post.author?(current_user)%>
