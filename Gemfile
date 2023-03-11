@@ -10,10 +10,14 @@ gem "mail", "~> 2.7.1", require: false
 
 gem "sprockets-rails"
 
-gem "jquery-rails"
+gem 'jquery-rails'
+gem 'rails-ujs'
+gem 'turbolinks'
 
 gem "shrine", "~> 3.3"
 gem "image_processing", "~> 1.12", ">= 1.12.1"
+
+gem 'followability'
 
 gem "pg", "~> 1.1"
 
