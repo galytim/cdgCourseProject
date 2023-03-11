@@ -1,11 +1,13 @@
 <div class="navbar">
       <%= link_to "Feed", posts_path %>
       <%= link_to "New post", new_post_path %>
+      <% if user_signed_in?%>
       <%= link_to "My profile", profile_path(current_user) %>
       
         <div class="signout">
-        <% if user_signed_in?%>
+        
           <%= link_to "exit", destroy_user_session_path, data: { turbo_method: :delete } %>
+          </div>
         <% end %> 
-        </div>
+        
     </div>
