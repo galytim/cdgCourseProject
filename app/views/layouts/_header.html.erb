@@ -1,7 +1,7 @@
 <div class="navbar">
       <%= link_to "Feed", posts_path %>
       <%= link_to "New post", new_post_path %>
-      <%= link_to "My profile", current_user %>
+      <%= link_to "My profile", profile_path(current_user) %>
       
         <div class="signout">
         <% if user_signed_in?%>

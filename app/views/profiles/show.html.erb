@@ -1,0 +1,5 @@
+<%= @user.email%><br>
+<div>followers:<%= @user.followers.count%></div>
+<% if !(@user.id == current_user.id)%>
+    <%= render "followability/follow_button", user: @user%>
+<%end%>

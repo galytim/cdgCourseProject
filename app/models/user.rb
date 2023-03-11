@@ -26,4 +26,10 @@ class User < ApplicationRecord
       where(conditions).first
     end
   end
+
+  def unfollow(user)
+    followerable_relationships.where(followable_id: user.id).destroy_all
+  end
+
+
 end

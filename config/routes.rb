@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users 
-  resources :users, only: [:index, :show]
+  resources :profiles, only: [:index, :show]
+  # Follow path
+  post 'follow/:id', to: 'follows#follow', as: :follow
+  # Unfollow path
+  post 'unfollow/:id', to: 'follows#unfollow', as: :unfollow
+
   root "posts#index"
   resources :posts do
     member do

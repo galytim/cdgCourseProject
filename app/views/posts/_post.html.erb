@@ -1,7 +1,7 @@
 <div class="w-[500px] m-auto mt-16">
     <% if !post.archived?%>
 
-        <div class="px-2""><%=link_to post.user.username, post.user%></div>
+        <div class="px-2""><%=link_to post.user.username,  profile_path(post.user)%></div>
         
             <%= image_tag post.image_url, class:"h-[500px] w-[500px] rounded-[6px] mt-3"%>
         <div class="ml-1" >
