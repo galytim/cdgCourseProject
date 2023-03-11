@@ -1,14 +1,15 @@
 class FollowsController < ApplicationController
     before_action :set_user
     def follow
-        current_user.send_follow_request_to(@user)
-        @user.accept_follow_request_of(current_user)
-        redirect_to profile_path(@user)
+        if current_user.following?(@user)
+            current_user.unfollow(@user)
+        else
+            current_user.send_follow_request_to(@user)
+            @user.accept_follow_request_of(current_user)
+        end
+        respond_to :js
     end
-    def unfollow
-        current_user.unfollow(@user)
-        redirect_to profile_path(@user)
-    end
+   
     private
     def set_user
         @user = User.find(params[:id])

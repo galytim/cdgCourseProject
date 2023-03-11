@@ -1,5 +1,7 @@
 <%= @user.email%><br>
-<div>followers:<%= @user.followers.count%></div>
+<div class="flex flex-row">followers:<div id="followers_count"><%= @user.followers.count%></div></div>
+<div class="flex flex-row">followings:<div id="following_count"><%= @user.following.count%></div></div>
+
 <% if !(@user.id == current_user.id)%>
-    <%= render "followability/follow_button", user: @user%>
+    <%= render "follows/follow_button", user: @user%>
 <%end%>
