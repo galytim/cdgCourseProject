@@ -2,7 +2,7 @@
 <p><%=@post.body%></p>
 
 <div class="flex flex-row ">
-<%= button_to "Like", like_post_path(@post), remote: true, method: :put, id: "like_button" %>
+<%= button_to "Like", like_post_path(@post), remote: true, method: :post, id: "like_button" %>
 	<div id="like-count"  data-post-id="<%= @post.id %>"><%= @post.liked_users.count  %></div>
 
 </div>

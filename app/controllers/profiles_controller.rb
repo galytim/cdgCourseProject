@@ -1,14 +1,14 @@
 class ProfilesController < ApplicationController
-  before_action :find_user!
   def index
     @users = User.all
   end
   def show
-    @user
+    @user = User.find(params[:id])
   end
 
   
   def follow
+    @user = User.find(params[:id])
     if current_user.following?(@user)
         current_user.unfollow(@user)
     else
@@ -20,8 +20,4 @@ end
 
 
 
-  private
-  def find_user!
-      @user = User.find(params[:id])
-  end
 end
