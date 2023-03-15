@@ -5,7 +5,9 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-
+  def feed
+    @posts = Post.where("user_id IN (?) OR user_id = ?", current_user.following_ids, current_user.id)
+  end
   
   def follow
     @user = User.find(params[:id])
