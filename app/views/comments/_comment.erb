@@ -2,7 +2,10 @@
   <b> <%= comment.user.username%></b>: <%= comment.body %>
  
   <%if comment.author?(current_user)%>
-    <%= link_to "Destroy", [comment.post, comment],  method: :delete%>
+    <%= link_to "Destroy", [comment.post, comment], data: {
+                  method: :delete,
+                  confirm: "Are you sure?"
+                  } %>
   <% end %>
   <br>
 
