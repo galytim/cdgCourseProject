@@ -43,7 +43,7 @@ class PostsController < ApplicationController
         else
             flash[:notice] = "you can't delete posts that aren't yours"
         end
-        redirect_to root_path, status: :see_other
+        redirect_to feed_path
     end    
 
 

@@ -19,7 +19,4 @@ class ProfilesController < ApplicationController
     end
     respond_to :js
 end
-
-
-
 end

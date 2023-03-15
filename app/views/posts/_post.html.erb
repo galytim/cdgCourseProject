@@ -14,15 +14,12 @@
                     <%= button_to "like", like_post_path(post), remote: true, method: :post%>
                 <%end%>
             </div>
-<br>
-                <div class="flex flex-row">
-                    Нравится:
-                    <div id="like-count" data-post-id="<%= post.id %>">
-                        <%= post.liked_users.count %>
-                    </div>
-                
-                    
-                    
+                <br>
+            <div class="flex flex-row ml-5">
+                 likes:
+                 <div id="like-count" data-post-id="<%= post.id %>">
+                     <%= post.liked_users.count %>
+                </div> 
                 </div>
             </div>    
         
