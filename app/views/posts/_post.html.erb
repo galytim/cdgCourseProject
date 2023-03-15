@@ -28,7 +28,7 @@
                 <%= post.user.username%>
             </div> 
             <%=  post.body %>
-            <div class="text-gray-500 mt-1"><%= link_to "Посмотреть все комментарии (#{post.comments.count})", post %></div>
+            <div class="text-gray-500 mt-1"><%= link_to "all comments (#{post.comments.count})", post %></div>
             <div class="text-gray-500 mt-1 text-[13px]"><%= post.created_at%>.</div>
         </div>
     <% end %>

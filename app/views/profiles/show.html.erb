@@ -1,6 +1,5 @@
 <div class="px-10">
     <%= @user.email%><br>
-    <img src="" class="h-[200px] w-[200px]">
     <div class="flex flex-row">
         
         <div class="flex flex-row ">followers:<div id="followers_count"><%= @user.followers.count%></div></div>
@@ -14,7 +13,11 @@
     <div class=" w-[700px] flex flex-row ">
     
         <% @user.posts.each do |post|%>
-            <div><%= image_tag post.image_url, class:"h-[150px] w-[150px] ml-3 mt-2"%></div>
+            <div>
+                <%= link_to post do %>
+                    <%= image_tag post.image_url, class: "h-[150px] w-[150px] ml-3 mt-2" %>
+                <% end %>
+            </div>
         <%end%>
     <%end%>
     </div>
