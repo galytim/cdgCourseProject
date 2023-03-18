@@ -1,6 +1,9 @@
-RSpec.describe "Post" do
-    subject {Post.new(body: "fsdf",status:"public", image_data:"{}")}
-    it "is_not_valid" do 
-        is_expected.to invalid
-    end
+require 'rails_helper'
+
+RSpec.describe Post, type: :model do
+  subject { Post.new() }
+  it "description" do
+    expect(subject).to be_valid 
+  end
+   
 end
