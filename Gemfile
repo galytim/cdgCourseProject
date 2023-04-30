@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.0"
+ruby "3.0.2"
 
 gem "rails", "~> 7.0.4"
 
@@ -40,7 +40,6 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "rspec"
   gem "rspec-rails"
   gem "factory_bot_rails"
   gem "ffaker"

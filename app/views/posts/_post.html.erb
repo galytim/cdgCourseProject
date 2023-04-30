@@ -9,9 +9,9 @@
             <div class="mt-3 px-2 flex flex-row h-[42px]">
             <div id="like_button" data-like-post-id="<%= post.id%>">
                 <%if post.liked_users.exists?(current_user.id)%>
-                    <%= button_to "unlike", like_post_path(post), remote: true, method: :post%>
+                    <%= button_to "unlike", like_path(post), remote: true, method: :post%>
                 <%else%>
-                    <%= button_to "like", like_post_path(post), remote: true, method: :post%>
+                    <%= button_to "like", like_path(post), remote: true, method: :post%>
                 <%end%>
             </div>
                 <br>

@@ -1,0 +1,8 @@
+
+<%if !@post.liked_users.exists?(current_user.id)%>
+$("#like_button[data-like-post-id='<%=@post.id%>']").html("<%= escape_javascript(button_to 'like', like_path(@post), remote: true, method: :post, id: 'like_button') %>");
+$("#like-count[data-post-id='<%=@post.id%>']").html("<%= j @post.liked_users.count %>");
+<%else%>
+$("#like_button[data-like-post-id='<%=@post.id%>']").html("<%= escape_javascript(button_to 'unlike', like_path(@post), remote: true, method: :post, id: 'like_button') %>");
+$("#like-count[data-post-id='<%=@post.id%>']").html("<%= j @post.liked_users.count %>");
+<%end%>

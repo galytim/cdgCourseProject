@@ -7,5 +7,4 @@ class Post < ApplicationRecord
     has_and_belongs_to_many :liked_users, class_name: "User", join_table: "likes"
 
     validates :image, presence: true
-    validates :body, presence: true
   end
