@@ -15,6 +15,7 @@ gem 'rails-ujs'
 gem 'turbolinks'
 
 gem "shrine", "~> 3.3"
+gem "mime-types"
 gem "image_processing", "~> 1.12", ">= 1.12.1"
 
 gem 'followability'
@@ -44,6 +45,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_bot_rails"
   gem "ffaker"
+  gem "rails-controller-testing"
 
 end
 

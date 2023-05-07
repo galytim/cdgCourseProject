@@ -1,8 +1,16 @@
 FactoryBot.define do
   factory :post do
-    association :user
     body { FFaker::Lorem.paragraph }
-    image_data {"{\"id\":\"3b275b48eeb24d886aaa0f1e2c64fefa.jpeg\",\"storage\":\"store\",\"metadata\":{\"filename\":\"index.jpeg\",\"size\":6614,\"mime_type\":\"image/jpeg\"}}"} 
+    image { Rack::Test::UploadedFile.new(Rails.root.join("spec", "support", "test_image.jpg"), "image/jpeg") }
     status {"public"}
+
+    association :user
+
+    trait :with_likes do
+      after(:create) do |post|
+        create_list(:user, 5, liked_posts: [post])
+      end
+    end
   end
 end
+

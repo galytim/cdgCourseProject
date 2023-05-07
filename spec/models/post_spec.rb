@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Post, type: :model do
-  let(:user) { FactoryBot.create(:user) }
-  let(:post) { FactoryBot.create(:post, user: user) }
+  let(:user) { build(:user) }
+  let(:post) { build(:post, user: user) }
 
   describe 'associations' do
     it { should belong_to(:user) }

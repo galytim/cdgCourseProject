@@ -1,11 +1,8 @@
 class PostsController < ApplicationController
-  
-    def index
-        @posts = Post.all
-    end
 
     def show
         @post = Post.find(params[:id])
+
     end
 
     def new
@@ -14,12 +11,12 @@ class PostsController < ApplicationController
 
     def create
         @post = current_user.posts.build(post_params)
+
         if @post.save
-            redirect_to @post
+            redirect_to post_path(@post)
         else 
-            render :new, status: :unprocessable_entity
+            render :new
         end 
-    
     end
     
 
@@ -30,9 +27,9 @@ class PostsController < ApplicationController
     def update
         @post = current_user.posts.find(params[:id])
         if  @post.update(post_params)
-            redirect_to @post
+            redirect_to post_path(@post)
         else 
-            render :edit, status: :unprocessable_entity
+            render :edit
         end 
     end
 
@@ -41,9 +38,8 @@ class PostsController < ApplicationController
     def destroy
         if  @post = current_user.posts.find(params[:id])
             @post.destroy
-        else
-            flash[:notice] = "you can't delete posts that aren't yours"
         end
+        
         redirect_to feed_path
     end    
 

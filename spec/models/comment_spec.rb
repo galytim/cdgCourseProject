@@ -1,8 +1,8 @@
 require "rails_helper"
 RSpec.describe Comment, type: :model do
-    let(:user) {FactoryBot.create(:user)}
-    let(:post) {FactoryBot.create(:post,user: user)}
-    let(:comment) {FactoryBot.create(:comment,post: post, user: user)}
+    let(:user) { build(:user) }
+    let(:post) { build(:post,user: user) } 
+    let(:comment) { build(:comment,post: post, user: user) }
 
     describe "associations" do
         it {should belong_to(:user).dependent(:destroy) }
