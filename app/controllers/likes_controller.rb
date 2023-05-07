@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
     before_action :find_post
+    protect_from_forgery except: [:like]
     def like
         if !@post.liked_users.exists?(current_user.id)
             @post.liked_users.push(current_user)
@@ -8,6 +9,7 @@ class LikesController < ApplicationController
         end
         respond_to :js
     end
+
 private
     def find_post
         @post = Post.find(params[:id])

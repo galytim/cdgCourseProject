@@ -1,4 +1,5 @@
 class FollowsController < ApplicationController
+  protect_from_forgery except: [:follow]
   before_action :find_user
   def follow
     if current_user.following?(@user)

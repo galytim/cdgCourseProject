@@ -110,8 +110,6 @@ RSpec.describe PostsController, type: :controller do
 
     describe "#update" do
         let(:post) { create(:post, user: user) }
-        let(:uploader) { described_class.new(:cashe) }
-        let(:empty_file) { Tempfile.new("1.png") }
         
         context "with invalid parameters" do
             subject {process :update, method: :patch, params: params}
