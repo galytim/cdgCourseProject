@@ -2,7 +2,6 @@ FactoryBot.define do
   factory :post do
     body { FFaker::Lorem.paragraph }
     image { Rack::Test::UploadedFile.new(Rails.root.join("spec", "support", "test_image.jpg"), "image/jpeg") }
-    status {"public"}
 
     association :user
 

@@ -1,5 +1,4 @@
 <div class="w-[500px] m-auto mt-16">
-    <% if !post.archived?%>
 
         <div class="px-2""><%=link_to post.user.username,  profile_path(post.user)%></div>
         
@@ -31,5 +30,4 @@
             <div class="text-gray-500 mt-1"><%= link_to "all comments (#{post.comments.count})", post %></div>
             <div class="text-gray-500 mt-1 text-[13px]"><%= post.created_at%>.</div>
         </div>
-    <% end %>
 </div>

@@ -15,6 +15,7 @@ class User < ApplicationRecord
   def login
     @login = self.username || self.email
   end
+  
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if (login = conditions.delete(:login))
@@ -22,5 +23,14 @@ class User < ApplicationRecord
     else
       where(conditions).first
     end
+  end
+  
+  def follow(user)
+    self.send_follow_request_to(user)
+    user.accept_follow_request_of(self)
+  end
+
+  def unfollow(user)
+    self.followerable_relationships.where(followable_id: user.id).destroy_all
   end
 end
