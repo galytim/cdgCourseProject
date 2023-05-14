@@ -1,5 +1,5 @@
 
-  <b> <%= comment.user.username%></b>: <%= comment.body %>
+  <b> <%= comment.user.username%></b>: <div><%= comment.body %></div>
  
   <%if comment.author?(current_user)%>
     <%= link_to "Destroy", [comment.post, comment], data: {
