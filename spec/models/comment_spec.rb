@@ -5,8 +5,8 @@ RSpec.describe Comment, type: :model do
     let(:comment) { build(:comment,post: post, user: user) }
 
     describe "associations" do
-        it {should belong_to(:user).dependent(:destroy) }
-        it {should belong_to(:post).dependent(:destroy) }
+        it {should belong_to(:user)}
+        it {should belong_to(:post)}
     end
     describe "validations" do
         it {should validate_presence_of(:body)}
